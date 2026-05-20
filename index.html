@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangkok ParTee™ | Booking Request</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Prompt', sans-serif; background-color: #0c1108; color: #e5e7eb; }
+        .luxury-font { font-family: 'Cinzel', serif; }
+        .gold-gradient { background: linear-gradient(135deg, #d4af37 0%, #f9e27d 50%, #b8860b 100%); }
+        .gold-border { border: 1px solid #d4af37; }
+        .gold-text { color: #d4af37; }
+        .input-style { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 8px; padding: 12px; width: 100%; color: white; transition: all 0.3s; }
+        .input-style:focus { outline: none; border-color: #d4af37; box-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
+        .loading { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 50; flex-direction: column; align-items: center; justify-content: center; }
+        
+        .ticket-card {
+            background: #151a11;
+            border: 1px dashed #d4af37;
+            position: relative;
+        }
+        .ticket-card::before, .ticket-card::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #0c1108;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .ticket-card::before { left: -11px; border-right: 1px dashed #d4af37; }
+        .ticket-card::after { right: -11px; border-left: 1px dashed #d4af37; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div id="loadingOverlay" class="loading">
+        <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-yellow-500 mb-4"></div>
+        <p class="text-yellow-500 luxury-font animate-pulse text-center px-4">Submitting Request...</p>
+    </div>
+
+    <div class="max-w-xl mx-auto bg-[#1a1f16] p-6 md:p-10 rounded-2xl shadow-2xl gold-border">
+        <div class="text-center mb-8">
+            <h1 class="luxury-font text-3xl text-[#d4af37] font-bold mb-1">BANGKOK PARTEE™</h1>
+            <p class="text-gray-400 text-xs uppercase tracking-widest font-semibold">VVIP Golf Booking Request</p>
+        </div>
+
+        <!-- ฟอร์มแจ้งจองของลูกค้า -->
+        <form id="bookingForm" onsubmit="handleBookingSubmit(this)">
+            
+            <div class="space-y-5">
+                
+                <!-- ข้อมูลลูกค้า -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-400 text-xs mb-1.5 uppercase tracking-wider">Your Name / Telegram ID</label>
+                        <input type="text" name="customerName" required class="input-style" placeholder="เช่น @JohnDoe หรือ คุณสมศักดิ์">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 text-xs mb-1.5 uppercase tracking-wider">Phone Number (เบอร์ติดต่อ)</label>
+                        <input type="tel" name="phone" required class="input-style" placeholder="เช่น 081-234-5678">
+                    </div>
+                </div>
+
+                <!-- เลือกน้องพาร์ทเนอร์ (Dropdown รายชื่ออัปเดต 20 คนล่าสุด) -->
+                <div>
+                    <label class="block text-gray-400 text-xs mb-1.5 uppercase tracking-wider">Select Companion (เลือกพาร์ทเนอร์ออกรอบ)</label>
+                    <select name="companionName" required class="input-style text-white appearance-none cursor-pointer">
+                        <option value="" disabled selected class="bg-[#1a1f16]">-- เลือกพาร์ทเนอร์ที่ท่านต้องการ --</option>
+                        <option value="SNOW" class="bg-[#1a1f16]">SNOW</option>
+                        <option value="An An (Noon)" class="bg-[#1a1f16]">An An (Noon)</option>
+                        <option value="Nune" class="bg-[#1a1f16]">Nune</option>
+                        <option value="Yui" class="bg-[#1a1f16]">Yui</option>
+                        <option value="Princess" class="bg-[#1a1f16]">Princess</option>
+                        <option value="Jessica" class="bg-[#1a1f16]">Jessica</option>
+                        <option value="Grace Udon Thani" class="bg-[#1a1f16]">Grace Udon Thani</option>
+                        <option value="Junie" class="bg-[#1a1f16]">Junie</option>
+                        <option value="Meily" class="bg-[#1a1f16]">Meily</option>
+                        <option value="Amy" class="bg-[#1a1f16]">Amy</option>
+                        <option value="Benz" class="bg-[#1a1f16]">Benz</option>
+                        <option value="Fah" class="bg-[#1a1f16]">Fah</option>
+                        <option value="Muay" class="bg-[#1a1f16]">Muay</option>
+                        <option value="Aomsin" class="bg-[#1a1f16]">Aomsin</option>
+                        <option value="NamWhan" class="bg-[#1a1f16]">NamWhan</option>
+                        <option value="Ailyn" class="bg-[#1a1f16]">Ailyn</option>
+                        <option value="Pat" class="bg-[#1a1f16]">Pat</option>
+                        <option value="NIDA" class="bg-[#1a1f16]">NIDA</option>
+                        <option value="Data" class="bg-[#1a1f16]">Data</option>
+                        <option value="Cherry" class="bg-[#1a1f16]">Cherry</option>
+                        <option value="No Specific / แอดมินแนะนำให้" class="bg-[#1a1f16]">ให้แอดมินแนะนำน้องๆ ให้</option>
+                    </select>
+                </div>
+
+                <!-- เลือกแพ็กเกจราคา -->
+                <div>
+                    <label class="block text-gray-400 text-xs mb-1.5 uppercase tracking-wider">Select Package (เลือกแพ็กเกจ)</label>
+                    <select name="packageType" required class="input-style text-white appearance-none cursor-pointer">
+                        <option value="" disabled selected class="bg-[#1a1f16]">-- เลือกบริการที่ท่านต้องการ --</option>
+                        <option value="1. Companions Only (เพื่อนร่วมออกรอบ)" class="bg-[#1a1f16]">Package 1: Companions Only (พาร์ทเนอร์กอล์ฟ & ร่วมปาร์ตี้)</option>
+                        <option value="2. One Day Trip (มีรถรับส่งพรีเมียม)" class="bg-[#1a1f16]">Package 2: Full Service One-Day Trip (พร้อมรถตู้อัลพาร์ดรับส่ง)</option>
+                        <option value="3. VVIP Par Tee (งานเลี้ยง/ทริปกลุ่มส่วนตัว)" class="bg-[#1a1f16]">Package 3: VVIP Par Tee (จัดทริปตีกอล์ฟ / พูลวิลล่าหรูส่วนตัว)</option>
+                    </select>
+                </div>
+
+                <!-- ข้อมูลสนามและการเดินทาง -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-400 text-xs mb-1.5 uppercase tracking-wider">Service Date (วันที่ออกรอบ)</label>
+                        <input type="date" name="serviceDate" required class="input-style">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 text-xs mb-1.5 uppercase tracking-wider">Tee Off Time (เวลาเริ่มทีออฟ)</label>
+                        <input type="time" name="teeTime" required class="input-style">
+                    </div>
+                </div>
+
+                <!-- ชื่อสนามกอล์ฟและจำนวนผู้ร่วมก๊วน -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-400 text-xs mb-1.5 uppercase tracking-wider">Golf Course (สนามกอล์ฟ)</label>
+                        <input type="text" name="golfCourse" required class="input-style" placeholder="เช่น Alpine, Nikanti, Thai Country">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 text-xs mb-1.5 uppercase tracking-wider">Number of Players (จำนวนผู้เล่นในกลุ่ม)</label>
+                        <select name="playersCount" required class="input-style text-white">
+                            <option value="1 คน (เดี่ยว)">1 คน</option>
+                            <option value="2 คน">2 คน</option>
+                            <option value="3 คน">3 คน</option>
+                            <option value="4 คน">4 คน (เต็มก๊วนปกติ)</option>
+                            <option value="มากกว่า 5 คนขึ้นไป (VVIP Private Group)">มากกว่า 5 คนขึ้นไป (Private Group)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- ความต้องการเพิ่มเติม -->
+                <div>
+                    <label class="block text-gray-400 text-xs mb-1.5 uppercase tracking-wider">Special Requests (ความต้องการเพิ่มเติม)</label>
+                    <textarea name="specialRequest" rows="3" class="input-style placeholder-gray-600 resize-none" placeholder="เช่น อาหารประเภทที่ชอบ, บักกี้คู่ส้ม, นัดรับสถานที่ระบุพิเศษ..."></textarea>
+                </div>
+
+            </div>
+
+            <!-- ปุ่มยืนยันการจอง -->
+            <button type="submit" class="w-full mt-8 py-4 rounded-lg gold-gradient text-black font-bold uppercase tracking-widest hover:opacity-90 transition-all shadow-lg text-sm">
+                ⛳️ Send Booking Request
+            </button>
+        </form>
+
+        <!-- ตั๋วยืนยันจองแบบ VVIP ดิจิทัลที่จะขึ้นเมื่อทำรายการสำเร็จ -->
+        <div id="successTicket" class="hidden mt-4 animate-fadeIn">
+            <div class="ticket-card p-6 rounded-2xl border border-[#d4af37] text-center mb-6">
+                <div class="w-16 h-16 bg-yellow-500 bg-opacity-10 border border-[#d4af37] rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-[#d4af37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <h2 class="luxury-font text-xl text-[#d4af37] font-bold tracking-widest mb-1">REQUEST RECEIVED</h2>
+                <p class="text-xs text-gray-400 uppercase tracking-widest mb-4">VVIP Booking Ticket</p>
+                
+                <div class="border-t border-b border-gray-800 border-dashed py-4 my-4 space-y-3 text-left text-sm text-gray-300">
+                    <div class="flex justify-between">
+                        <span class="text-gray-500">Request ID:</span>
+                        <strong class="text-[#d4af37] tracking-wider font-mono" id="ticketId">-</strong>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-500">Customer:</span>
+                        <strong class="text-white" id="ticketCustomer">-</strong>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-500">Companion:</span>
+                        <strong class="text-white" id="ticketCompanion">-</strong>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-500">Package:</span>
+                        <strong class="text-white text-xs" id="ticketPackage">-</strong>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-500">Date/Tee Off:</span>
+                        <strong class="text-white" id="ticketDateTime">-</strong>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-500">Golf Course:</span>
+                        <strong class="text-white" id="ticketCourse">-</strong>
+                    </div>
+                </div>
+
+                <div class="bg-yellow-500 bg-opacity-5 p-3 rounded-lg border border-yellow-500 border-opacity-20 text-center">
+                    <p class="text-xs text-[#d4af37] font-semibold mb-1">Status: Waiting for verification</p>
+                    <p class="text-[10px] text-gray-400">ระบบส่งข้อมูลเข้ากลุ่มแอดมินแล้ว แอดมินจะรีบตรวจสอบคิวงานของน้องพาร์ทเนอร์และติดต่อกลับหาท่านทาง Telegram/เบอร์โทรศัพท์โดยเร็วที่สุดค่ะ</p>
+                </div>
+            </div>
+            
+            <p class="text-center text-xs text-gray-500">📸 แนะนำให้แคปหน้าจอเพื่อบันทึกใบคำขอจอง VVIP นี้เก็บไว้ใช้ยืนยันกับแอดมินค่ะ</p>
+        </div>
+    </div>
+
+    <script>
+        // จำลองสภาพแวดล้อมเพื่อป้องกัน Error "google is not defined" เวลาเปิดพรีวิวด้านนอกระบบจริง
+        if (typeof google === 'undefined' || !google.script || !google.script.run) {
+            window.google = {
+                script: {
+                    run: {
+                        withSuccessHandler: function(onSuccess) {
+                            return {
+                                withFailureHandler: function(onFailure) {
+                                    return {
+                                        submitBookingRequest: function(data) {
+                                            console.log("[Preview Mode] ส่งข้อมูลใบจองจำลอง:", data);
+                                            setTimeout(function() {
+                                                const dateStr = new Date().toISOString().slice(2, 10).replace(/-/g, "");
+                                                onSuccess("BPT-REQ-" + dateStr + "-MOCK");
+                                            }, 1000);
+                                        }
+                                    };
+                                }
+                            };
+                        }
+                    }
+                }
+            };
+        }
+
+        function handleBookingSubmit(form) {
+            event.preventDefault();
+            document.getElementById('loadingOverlay').style.display = 'flex';
+
+            const bookingData = {
+                customerName: form.customerName.value,
+                phone: form.phone.value,
+                companionName: form.companionName.value,
+                packageType: form.packageType.value,
+                serviceDate: form.serviceDate.value,
+                teeTime: form.teeTime.value,
+                golfCourse: form.golfCourse.value,
+                playersCount: form.playersCount.value,
+                specialRequest: form.specialRequest.value
+            };
+
+            google.script.run
+                .withSuccessHandler(function(requestId) {
+                    document.getElementById('loadingOverlay').style.display = 'none';
+                    showSuccessTicket(bookingData, requestId);
+                })
+                .withFailureHandler(function(err) {
+                    document.getElementById('loadingOverlay').style.display = 'none';
+                    alert('เกิดข้อผิดพลาดในการส่งข้อมูล: ' + err.message);
+                })
+                .submitBookingRequest(bookingData);
+        }
+
+        function showSuccessTicket(data, requestId) {
+            document.getElementById('bookingForm').classList.add('hidden');
+            
+            // อัปเดตข้อมูลบนบัตรคำขอจอง VVIP
+            document.getElementById('ticketId').innerText = requestId;
+            document.getElementById('ticketCustomer').innerText = data.customerName;
+            document.getElementById('ticketCompanion').innerText = data.companionName;
+            document.getElementById('ticketPackage').innerText = data.packageType;
+            document.getElementById('ticketDateTime').innerText = data.serviceDate + " @ " + data.teeTime;
+            document.getElementById('ticketCourse').innerText = data.golfCourse + " (" + data.playersCount + ")";
+
+            document.getElementById('successTicket').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
