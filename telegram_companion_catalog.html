@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bangkok ParTee™ | VVIP Golf Companion Catalog</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Telegram Web App SDK -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #060907; /* Dark Emerald Black (Golf Theme) */
+            color: #f3f4f6;
+            -webkit-tap-highlight-color: transparent;
+            overflow-x: hidden;
+        }
+        .luxury-font {
+            font-family: 'Cinzel', serif;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #e5c158 0%, #fef3c7 50%, #b8860b 100%);
+        }
+        .gold-text {
+            background: linear-gradient(135deg, #fef3c7 0%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-border {
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        .gold-border-focus:focus {
+            border-color: #d4af37;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+        }
+        /* Custom scrollbar for premium look */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #060907;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 2px;
+        }
+        /* Ticket Dashed Cut style */
+        .ticket-dashed {
+            position: relative;
+            border: 1px dashed rgba(212, 175, 55, 0.4);
+        }
+        .ticket-dashed::before, .ticket-dashed::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: #060907;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .ticket-dashed::before { left: -9px; border-right: 1px dashed rgba(212, 175, 55, 0.4); }
+        .ticket-dashed::after { right: -9px; border-left: 1px dashed rgba(212, 175, 55, 0.4); }
+    </style>
+</head>
+<body class="safe-bottom pb-12">
+
+    <!-- แถบเมนูด้านบนสุดสไตล์ VVIP -->
+    <header class="sticky top-0 z-30 bg-[#060907]/90 backdrop-blur-md border-b border-yellow-500/10 px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-full gold-gradient p-[1px]">
+                <div class="w-full h-full rounded-full bg-[#060907] flex items-center justify-center">
+                    <span class="luxury-font text-xs text-[#d4af37] font-bold">BP</span>
+                </div>
+            </div>
+            <div>
+                <h1 class="luxury-font text-sm font-bold tracking-widest text-white leading-none">BANGKOK PARTEE™</h1>
+                <span class="text-[9px] uppercase tracking-wider text-[#d4af37]/80">Golf & Companion Lounge</span>
+            </div>
+        </div>
+        <span class="text-[10px] bg-yellow-500/10 border border-yellow-500/20 text-[#d4af37] px-2.5 py-1 rounded-full flex items-center gap-1 font-semibold">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> ONLINE
+        </span>
+    </header>
+
+    <main class="px-4 py-4 space-y-6 max-w-md mx-auto">
+        
+        <!-- การ์ดต้อนรับสุดพรีเมียม -->
+        <section class="bg-gradient-to-br from-[#121c16] to-[#0a0f0d] rounded-2xl p-5 border border-yellow-500/20 relative overflow-hidden">
+            <div class="absolute -right-8 -bottom-8 w-24 h-24 bg-yellow-500/5 rounded-full blur-xl"></div>
+            <span class="luxury-font text-xs uppercase tracking-widest text-[#d4af37] block mb-1">Exclusive Experience</span>
+            <h2 class="luxury-font text-xl font-bold text-white mb-2 leading-tight">Elevate Your Day on the Green</h2>
+            <p class="text-xs text-gray-400 leading-relaxed">จองเพื่อนร่วมออกรอบ 18 หลุมและพาร์ทเนอร์สังสรรค์ระดับพรีเมียม เพื่อเติมเต็มรอยยิ้มให้กับก๊วนกอล์ฟพิเศษของคุณค่ะ</p>
+        </section>
+
+        <!-- ส่วนของ Package Slider (3 แพ็กเกจหรูหรา) -->
+        <section class="space-y-3">
+            <h3 class="luxury-font text-xs uppercase tracking-widest text-[#d4af37] font-semibold">Our Services & Packages</h3>
+            <div class="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory scroll-smooth">
+                
+                <!-- Package 1 -->
+                <div class="snap-start shrink-0 w-72 bg-[#0e1411] border border-yellow-500/10 rounded-xl p-4 flex flex-col justify-between h-40">
+                    <div>
+                        <span class="text-[9px] bg-yellow-500/10 text-[#d4af37] px-2 py-0.5 rounded-full uppercase tracking-wider">Package 01</span>
+                        <h4 class="text-sm font-bold text-white mt-1.5">Companions Only</h4>
+                        <p class="text-[11px] text-gray-400 mt-1 leading-relaxed">ร่วมก๊วนตีกอล์ฟ 18 หลุม พร้อมดูแลบริการ ตกแต่งบรรยากาศ และร่วมปาร์ตี้ต่อได้</p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-gray-800/60 pt-2 mt-2">
+                        <span class="text-xs text-gray-500">Premium Companion</span>
+                        <span class="text-xs text-[#d4af37] font-bold">Popular 🔥</span>
+                    </div>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="snap-start shrink-0 w-72 bg-[#0e1411] border border-yellow-500/10 rounded-xl p-4 flex flex-col justify-between h-40">
+                    <div>
+                        <span class="text-[9px] bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded-full uppercase tracking-wider">Package 02</span>
+                        <h4 class="text-sm font-bold text-white mt-1.5">Full Service One-Day Trip</h4>
+                        <p class="text-[11px] text-gray-400 mt-1 leading-relaxed">บริการแบบ Full Day พร้อมรถตู้อัลพาร์ดพรีเมียมรับส่งสนามกอล์ฟและงานเลี้ยง</p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-gray-800/60 pt-2 mt-2">
+                        <span class="text-xs text-gray-500">Alphard Transfer Included</span>
+                        <span class="text-xs text-blue-400 font-bold">VVIP 🚐</span>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="snap-start shrink-0 w-72 bg-[#0e1411] border border-yellow-500/10 rounded-xl p-4 flex flex-col justify-between h-40">
+                    <div>
+                        <span class="text-[9px] bg-purple-500/10 text-purple-400 px-2 py-0.5 rounded-full uppercase tracking-wider">Package 03</span>
+                        <h4 class="text-sm font-bold text-white mt-1.5">VVIP Par Tee Private Group</h4>
+                        <p class="text-[11px] text-gray-400 mt-1 leading-relaxed">ทริปกลุ่ม คัสตอมสนามกอล์ฟสุดหรู พูลวิลล่าส่วนตัว หรือดินเนอร์หรูบนเรือยอชท์</p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-gray-800/60 pt-2 mt-2">
+                        <span class="text-xs text-gray-500">Fully Customizable</span>
+                        <span class="text-xs text-purple-400 font-bold">Elite 🥂</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ระบบค้นหาและตัวกรองข้อมูล -->
+        <section class="space-y-3">
+            <div class="flex items-center justify-between">
+                <h3 class="luxury-font text-xs uppercase tracking-widest text-[#d4af37] font-semibold">Select Companion (20 Models)</h3>
+                <span id="companionsCount" class="text-xs text-gray-500">Showing 20 people</span>
+            </div>
+            
+            <div class="flex gap-2">
+                <!-- ช่องพิมพ์เสิร์ช -->
+                <div class="relative flex-1">
+                    <input type="text" id="searchInput" oninput="filterCompanions()" placeholder="ค้นหาชื่อพาร์ทเนอร์..." class="w-full pl-9 pr-4 py-2.5 bg-[#0e1411] border border-yellow-500/20 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 transition-all">
+                    <svg class="w-4 h-4 text-gray-500 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+                
+                <!-- ฟิลเตอร์ระดับกอล์ฟ -->
+                <select id="golfFilter" onchange="filterCompanions()" class="bg-[#0e1411] border border-yellow-500/20 text-xs text-white rounded-lg px-2 focus:outline-none focus:border-yellow-500">
+                    <option value="all">ตีกอล์ฟ (ทั้งหมด)</option>
+                    <option value="expert">Handicap ต่ำ (เล่นเก่ง)</option>
+                    <option value="intermediate">Handicap ปานกลาง</option>
+                    <option value="cheerful">เน้นเอนเตอร์เทน</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- รายชื่อสาวๆ ทั้ง 20 คน (Grid layout โหลดเร็ว ตอบสนองหน้าจอทันที) -->
+        <section class="grid grid-cols-2 gap-3" id="catalogGrid">
+            <!-- วนลูปสร้างการ์ดผ่าน JavaScript ด้านล่างเพื่อลดขนาดไฟล์และทำให้จัดการง่ายขึ้น -->
+        </section>
+
+    </main>
+
+    <!-- Modal แสดงรายละเอียดโปรไฟล์เชิงลึก VVIP -->
+    <div id="profileModal" class="fixed inset-0 z-50 hidden flex-col justify-end bg-black/80 backdrop-blur-sm animate-fadeIn">
+        <div class="bg-[#0e1411] border-t border-yellow-500/20 rounded-t-3xl max-w-md mx-auto w-full max-h-[85vh] overflow-y-auto p-6 space-y-6">
+            
+            <div class="flex justify-between items-start">
+                <div class="flex items-center gap-3">
+                    <div id="modalAvatar" class="w-16 h-16 rounded-full gold-gradient p-[2px]">
+                        <!-- รูปโปรไฟล์หรืออวาตาร์ -->
+                    </div>
+                    <div>
+                        <h3 id="modalName" class="luxury-font text-2xl font-bold text-white leading-none">Companion</h3>
+                        <span id="modalAge" class="text-xs text-[#d4af37] block mt-1">VVIP Companion</span>
+                    </div>
+                </div>
+                <button type="button" onclick="closeModal()" class="w-8 h-8 rounded-full bg-gray-800 text-gray-400 flex items-center justify-center hover:bg-gray-700 transition-all">
+                    ✕
+                </button>
+            </div>
+
+            <!-- รายละเอียดสเปกเชิงลึก -->
+            <div class="grid grid-cols-2 gap-3 text-xs bg-black/30 p-4 rounded-xl border border-yellow-500/5">
+                <div>
+                    <span class="text-gray-500 block mb-0.5">ส่วนสูง / สัดส่วน:</span>
+                    <strong id="modalSpecs" class="text-white">-</strong>
+                </div>
+                <div>
+                    <span class="text-gray-500 block mb-0.5">ระดับฝีมือกอล์ฟ:</span>
+                    <strong id="modalGolf" class="text-yellow-500">-</strong>
+                </div>
+                <div class="mt-2">
+                    <span class="text-gray-500 block mb-0.5">ภาษาที่สื่อสารได้:</span>
+                    <strong id="modalLanguages" class="text-white">-</strong>
+                </div>
+                <div class="mt-2">
+                    <span class="text-gray-500 block mb-0.5">บุคลิก / สไตล์:</span>
+                    <strong id="modalStyle" class="text-white">-</strong>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <h4 class="luxury-font text-xs uppercase tracking-widest text-[#d4af37]">Companion Bio</h4>
+                <p class="text-xs text-gray-400 leading-relaxed" id="modalBio">พร้อมดูแลคุณลูกค้าอย่างพรีเมียม สนุกสนาน ตีกอล์ฟเก่ง และเอนเตอร์เทนเก่งมากค่ะ</p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 pt-2">
+                <button type="button" onclick="closeModal()" class="py-3 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-lg text-xs uppercase tracking-wider transition-all">
+                    Back to Catalog
+                </button>
+                <button type="button" onclick="openBookingForm()" class="py-3 gold-gradient text-black font-bold rounded-lg text-xs uppercase tracking-wider hover:opacity-90 transition-all">
+                    Book Now ⛳️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ฟอร์มขั้นตอนจอง (Modal Booking Form) -->
+    <div id="bookingModal" class="fixed inset-0 z-50 hidden flex-col justify-end bg-black/80 backdrop-blur-sm">
+        <div class="bg-[#0e1411] border-t border-yellow-500/20 rounded-t-3xl max-w-md mx-auto w-full max-h-[90vh] overflow-y-auto p-6">
+            
+            <div class="flex justify-between items-center mb-5">
+                <h3 class="luxury-font text-lg text-[#d4af37] font-bold">VVIP BOOKING REQUEST</h3>
+                <button type="button" onclick="closeBookingModal()" class="w-7 h-7 rounded-full bg-gray-800 text-gray-400 flex items-center justify-center text-xs">✕</button>
+            </div>
+
+            <form id="miniBookingForm" onsubmit="handleRequestSubmit(this)" class="space-y-4 text-xs">
+                <input type="hidden" id="formCompanion" name="companion">
+
+                <!-- สรุปตัวเลือก -->
+                <div class="p-3 bg-yellow-500/5 border border-yellow-500/10 rounded-lg flex items-center justify-between">
+                    <div>
+                        <span class="text-gray-500 block text-[9px] uppercase">Selected Companion:</span>
+                        <strong id="formCompanionDisplay" class="text-white text-sm font-semibold">Companion</strong>
+                    </div>
+                    <span class="text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full text-[10px]">Secure Slots 🔒</span>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-gray-400 mb-1">Your Telegram ID / Name</label>
+                        <input type="text" name="customerName" id="telegramName" required class="input-style p-2.5 text-xs w-full" placeholder="@JohnDoe">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1">Contact Phone (เบอร์โทร)</label>
+                        <input type="tel" name="phone" required class="input-style p-2.5 text-xs w-full" placeholder="081-234-5678">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-gray-400 mb-1">Select Package</label>
+                    <select name="package" required class="input-style p-2.5 text-xs w-full text-white appearance-none cursor-pointer">
+                        <option value="Package 1: Companions Only">Package 1: Companions Only</option>
+                        <option value="Package 2: One-Day Trip (Alphard Transfer)">Package 2: One-Day Trip (Alphard Transfer)</option>
+                        <option value="Package 3: VVIP Private Party Group">Package 3: VVIP Private Party Group</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-gray-400 mb-1">Service Date (วันออกรอบ)</label>
+                        <input type="date" name="date" required class="input-style p-2.5 text-xs w-full">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1">Tee Off Time (เวลาทีออฟ)</label>
+                        <input type="time" name="time" required class="input-style p-2.5 text-xs w-full">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-gray-400 mb-1">Golf Course Name (ชื่อสนามกอล์ฟ)</label>
+                    <input type="text" name="course" required class="input-style p-2.5 text-xs w-full" placeholder="เช่น Alpine, Nikanti, Thai Country Club">
+                </div>
+
+                <div>
+                    <label class="block text-gray-400 mb-1">Special Requests (ความต้องการเพิ่มเติม)</label>
+                    <textarea name="note" rows="2" class="input-style p-2.5 text-xs w-full resize-none" placeholder="เช่น ทริปสเปเชียล, อาหาร, บักกี้ส่วนตัว..."></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 mt-2 rounded-lg gold-gradient text-black font-bold uppercase tracking-widest text-xs hover:opacity-95 transition-all">
+                    ⛳️ Submit Booking Ticket
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ตั๋วจองสำเร็จแบบ Pop-up (Ticket Modal) -->
+    <div id="ticketModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div class="max-w-xs w-full bg-[#111613] rounded-2xl p-5 border border-yellow-500/20 shadow-2xl relative overflow-hidden">
+            
+            <div class="text-center pb-4 border-b border-gray-800/80">
+                <div class="w-12 h-12 rounded-full bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center mx-auto mb-2">
+                    <svg class="w-6 h-6 text-[#d4af37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="luxury-font text-lg font-bold text-white">REQUEST SUBMITTED</h3>
+                <span class="text-[9px] text-[#d4af37] tracking-widest uppercase">Bangkok ParTee™ VVIP Receipt</span>
+            </div>
+
+            <!-- ใบรับเรื่อง VVIP ดิจิทัล -->
+            <div class="ticket-dashed py-4 my-4 space-y-2.5 text-[11px] text-gray-300">
+                <div class="flex justify-between">
+                    <span class="text-gray-500">Request ID:</span>
+                    <strong class="text-[#d4af37] tracking-wider font-mono" id="t-id">BPT-MOCK</strong>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-500">Customer:</span>
+                    <strong class="text-white" id="t-customer">-</strong>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-500">Companion:</span>
+                    <strong class="text-white" id="t-companion">-</strong>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-500">Date/Tee Time:</span>
+                    <strong class="text-white" id="t-datetime">-</strong>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-500">Golf Course:</span>
+                    <strong class="text-white truncate max-w-[120px]" id="t-course">-</strong>
+                </div>
+            </div>
+
+            <div class="bg-yellow-500/5 p-3 rounded-lg border border-yellow-500/10 text-center mb-4">
+                <p class="text-[9px] text-[#d4af37] font-semibold">Status: Verifying Partner Availability</p>
+                <p class="text-[8px] text-gray-400 mt-0.5">แอดมินได้รับข้อมูลแล้ว คิวงานของน้องกำลังส่งเช็ก และแอดมินจะติดต่อกลับคุณทันทีค่ะ</p>
+            </div>
+
+            <button type="button" onclick="closeAllModals()" class="w-full py-2.5 bg-gray-800 hover:bg-gray-700 text-white rounded-lg text-xs font-semibold tracking-wider transition-all">
+                Close & Return
+            </button>
+        </div>
+    </div>
+
+    <!-- แถบเมนูด้านล่างสำหรับ TWA/LINE Mini App (Premium Navigation Tab) -->
+    <nav class="fixed bottom-0 left-0 right-0 z-30 bg-[#060907]/95 border-t border-yellow-500/10 px-6 py-2.5 flex justify-around max-w-md mx-auto">
+        <button type="button" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="flex flex-col items-center gap-1 text-[#d4af37]">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+            <span class="text-[9px] font-semibold tracking-wide uppercase">Home</span>
+        </button>
+        <button type="button" onclick="openChannelLink()" class="flex flex-col items-center gap-1 text-gray-500 hover:text-white transition-all">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z"></path><path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z"></path></svg>
+            <span class="text-[9px] font-semibold tracking-wide uppercase">Private Club</span>
+        </button>
+        <button type="button" onclick="openSupportChat()" class="flex flex-col items-center gap-1 text-gray-500 hover:text-white transition-all">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+            <span class="text-[9px] font-semibold tracking-wide uppercase">Support</span>
+        </button>
+    </nav>
+
+    <!-- ข้อมูลฐานข้อมูลของสาวๆ พาร์ทเนอร์ 20 คนล่าสุด -->
+    <script>
+        // ===================================================================================
+        // ⚠️ ขั้นตอนสำคัญ: นำลิงก์เว็บแอปที่ได้จาก Google Apps Script (ลงท้ายด้วย /exec) มาวางแทนที่ด้านล่างนี้
+        // ===================================================================================
+        const BACKEND_API_URL = "ใส่_WEB_APP_URL_จาก_GOOGLE_APPS_SCRIPT_ตรงนี้";
+
+        const companionsData = [
+            { id: 1, name: "SNOW", handicap: 18, rating: "Expert 🏌️‍♀️", lang: "EN/TH/JP", style: "Elegant & Professional", age: 24, specs: "34-24-35 / 168cm", avatarGradient: "from-blue-900 to-indigo-900", tag: "expert" },
+            { id: 2, name: "An An (Noon)", handicap: 22, rating: "Expert 🏌️‍♀️", lang: "EN/TH", style: "Smart & Athletic", age: 25, specs: "33-24-34 / 165cm", avatarGradient: "from-purple-900 to-pink-900", tag: "expert" },
+            { id: 3, name: "Nune", handicap: 24, rating: "Intermediate", lang: "EN/TH", style: "Cheerful & Supportive", age: 23, specs: "34-25-35 / 166cm", avatarGradient: "from-teal-900 to-cyan-900", tag: "intermediate" },
+            { id: 4, name: "Yui", handicap: 28, rating: "Intermediate", lang: "EN/TH/KR", style: "Charming & Elegant", age: 24, specs: "33-24-35 / 167cm", avatarGradient: "from-emerald-950 to-teal-900", tag: "intermediate" },
+            { id: 5, name: "Princess", handicap: 32, rating: "Cheerful 🥂", lang: "EN/TH", style: "Sweet & Friendly", age: 22, specs: "32-23-34 / 163cm", avatarGradient: "from-rose-900 to-pink-950", tag: "cheerful" },
+            { id: 6, name: "Jessica", handicap: 20, rating: "Expert 🏌️‍♀️", lang: "EN/TH/JP", style: "Elegant Pro-Am Vibe", age: 26, specs: "35-25-36 / 170cm", avatarGradient: "from-violet-950 to-indigo-900", tag: "expert" },
+            { id: 7, name: "Grace Udon Thani", handicap: 25, rating: "Intermediate", lang: "EN/TH", style: "Athletic & Energetic", age: 23, specs: "33-24-34 / 164cm", avatarGradient: "from-amber-900 to-orange-950", tag: "intermediate" },
+            { id: 8, name: "Junie", handicap: 27, rating: "Intermediate", lang: "EN/TH", style: "Charming & Talkative", age: 24, specs: "34-24-35 / 165cm", avatarGradient: "from-teal-900 to-emerald-900", tag: "intermediate" },
+            { id: 9, name: "Meily", handicap: 35, rating: "Cheerful 🥂", lang: "EN/TH/CN", style: "Bright & Energetic", age: 23, specs: "34-24-34 / 162cm", avatarGradient: "from-orange-800 to-rose-950", tag: "cheerful" },
+            { id: 10, name: "Amy", handicap: 24, rating: "Intermediate", lang: "EN/TH", style: "Polite & Helpful", age: 25, specs: "33-24-35 / 166cm", avatarGradient: "from-slate-800 to-zinc-950", tag: "intermediate" },
+            { id: 11, name: "Benz", handicap: 21, rating: "Expert 🏌️‍♀️", lang: "EN/TH", style: "Smart & Sporty Girl", age: 24, specs: "34-25-35 / 168cm", avatarGradient: "from-indigo-950 to-slate-900", tag: "expert" },
+            { id: 12, name: "Fah", handicap: 30, rating: "Cheerful 🥂", lang: "EN/TH", style: "Sweet & Outgoing", age: 22, specs: "33-24-34 / 164cm", avatarGradient: "from-fuchsia-950 to-pink-900", tag: "cheerful" },
+            { id: 13, name: "Muay", handicap: 26, rating: "Intermediate", lang: "EN/TH/CN", style: "Friendly & Cute Style", age: 23, specs: "34-24-34 / 162cm", avatarGradient: "from-red-950 to-amber-950", tag: "intermediate" },
+            { id: 14, name: "Aomsin", handicap: 28, rating: "Intermediate", lang: "EN/TH", style: "Caring & Attentive", age: 24, specs: "33-24-35 / 165cm", avatarGradient: "from-sky-950 to-blue-900", tag: "intermediate" },
+            { id: 15, name: "NamWhan", handicap: 35, rating: "Cheerful 🥂", lang: "EN/TH", style: "Super Bright & Joyful", age: 23, specs: "35-25-36 / 167cm", avatarGradient: "from-pink-900 to-rose-900", tag: "cheerful" },
+            { id: 16, name: "Ailyn", handicap: 22, rating: "Expert 🏌️‍♀️", lang: "EN/TH/JP", style: "High Class Elegant", age: 25, specs: "34-24-35 / 166cm", avatarGradient: "from-violet-900 to-purple-950", tag: "expert" },
+            { id: 17, name: "Pat", handicap: 29, rating: "Intermediate", lang: "EN/TH", style: "Friendly Golf Partner", age: 24, specs: "33-24-34 / 165cm", avatarGradient: "from-blue-950 to-cyan-900", tag: "intermediate" },
+            { id: 18, name: "NIDA", handicap: 33, rating: "Cheerful 🥂", lang: "EN/TH", style: "Cute & Sweet Heart", age: 22, specs: "32-23-34 / 163cm", avatarGradient: "from-pink-950 to-fuchsia-900", tag: "cheerful" },
+            { id: 19, name: "Data", handicap: 25, rating: "Intermediate", lang: "EN/TH", style: "Polite & Executive Care", age: 24, specs: "34-24-35 / 167cm", avatarGradient: "from-emerald-900 to-slate-900", tag: "intermediate" },
+            { id: 20, name: "Cherry", handicap: 34, rating: "Cheerful 🥂", lang: "EN/TH/JP", style: "Active & Energetic Vibe", age: 23, specs: "34-25-35 / 164cm", avatarGradient: "from-rose-900 to-orange-950", tag: "cheerful" }
+        ];
+
+        let selectedCompanion = null;
+
+        // เริ่มต้นการเรนเดอร์โปรไฟล์พาร์ทเนอร์ในหน้าแรก
+        function renderCatalog(list) {
+            const grid = document.getElementById('catalogGrid');
+            grid.innerHTML = "";
+
+            if (list.length === 0) {
+                grid.innerHTML = `<div class="col-span-2 text-center py-12 text-gray-500 text-xs">ไม่พบพาร์ทเนอร์ตามเงื่อนไขที่ค้นหาค่ะ</div>`;
+                return;
+            }
+
+            list.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "bg-[#0e1411] border border-yellow-500/10 rounded-2xl overflow-hidden p-3 flex flex-col justify-between h-56 active:scale-95 transition-all cursor-pointer";
+                card.onclick = () => showProfileDetail(item);
+                
+                card.innerHTML = `
+                    <div class="space-y-2">
+                        <!-- วงกลมอวาตาร์จำลองสีทองสไตล VVIP พร้อมพาสเทลตัวหนังสือหรู -->
+                        <div class="w-20 h-20 rounded-full bg-gradient-to-br ${item.avatarGradient} p-[2px] mx-auto flex items-center justify-center border border-yellow-500/30">
+                            <div class="w-full h-full bg-[#060907]/90 rounded-full flex flex-col items-center justify-center">
+                                <span class="luxury-font text-xl text-yellow-500 font-bold">${item.name.charAt(0)}</span>
+                                <span class="text-[7px] text-gray-400 font-bold uppercase tracking-widest">${item.name.substring(1, 4)}</span>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <h4 class="luxury-font text-xs font-bold text-white tracking-wide truncate">${item.name}</h4>
+                            <span class="text-[9px] text-[#d4af37] block mt-0.5">${item.style}</span>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-gray-800/80 pt-2 space-y-1">
+                        <div class="flex justify-between text-[10px]">
+                            <span class="text-gray-500">Handicap:</span>
+                            <span class="text-white font-bold">${item.handicap}</span>
+                        </div>
+                        <div class="flex justify-between text-[9px]">
+                            <span class="text-gray-500">Languages:</span>
+                            <span class="text-white font-semibold">${item.lang}</span>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            document.getElementById('companionsCount').innerText = `Showing ${list.length} people`;
+        }
+
+        // ระบบกรองชื่อพาร์ทเนอร์และสเตตัสแบบเรียลไทม์
+        function filterCompanions() {
+            const searchVal = document.getElementById('searchInput').value.toLowerCase().trim();
+            const golfVal = document.getElementById('golfFilter').value;
+
+            let filtered = companionsData.filter(item => {
+                const matchesSearch = item.name.toLowerCase().includes(searchVal);
+                
+                let matchesGolf = true;
+                if (golfVal === "expert") {
+                    matchesGolf = item.handicap <= 22;
+                } else if (golfVal === "intermediate") {
+                    matchesGolf = item.handicap > 22 && item.handicap <= 29;
+                } else if (golfVal === "cheerful") {
+                    matchesGolf = item.handicap > 29;
+                }
+
+                return matchesSearch && matchesGolf;
+            });
+
+            renderCatalog(filtered);
+        }
+
+        // แสดงสไลด์โปรไฟล์พาร์ทเนอร์รายบุคคล
+        function showProfileDetail(item) {
+            selectedCompanion = item;
+            
+            document.getElementById('modalName').innerText = item.name;
+            document.getElementById('modalAge').innerText = `Age: ${item.age} / VVIP Golf Companion`;
+            document.getElementById('modalSpecs').innerText = item.specs;
+            document.getElementById('modalGolf').innerText = `${item.rating} (Handicap: ${item.handicap})`;
+            document.getElementById('modalLanguages').innerText = item.lang;
+            document.getElementById('modalStyle').innerText = item.style;
+            
+            // ปรับอวาตาร์ตัวเลือกในโมดอล
+            document.getElementById('modalAvatar').className = `w-16 h-16 rounded-full bg-gradient-to-br ${item.avatarGradient} p-[2px]`;
+            document.getElementById('modalAvatar').innerHTML = `
+                <div class="w-full h-full bg-[#060907] rounded-full flex items-center justify-center">
+                    <span class="luxury-font text-lg text-[#d4af37] font-bold">${item.name.charAt(0)}</span>
+                </div>
+            `;
+
+            const modal = document.getElementById('profileModal');
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('profileModal').style.display = 'none';
+        }
+
+        // เปลี่ยนหน้าจอมาที่ฟอร์มกรอกจอง
+        function openBookingForm() {
+            if (!selectedCompanion) return;
+            closeModal();
+
+            document.getElementById('formCompanion').value = selectedCompanion.name;
+            document.getElementById('formCompanionDisplay').innerText = `${selectedCompanion.name} (Handicap: ${selectedCompanion.handicap})`;
+
+            // ออโต้ล็อกอินชื่อยูสเซอร์เนม Telegram (หากลูกค้าเข้าผ่าน Telegram Web App จริง)
+            try {
+                if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe) {
+                    const user = window.Telegram.WebApp.initDataUnsafe.user;
+                    if (user && user.username) {
+                        document.getElementById('telegramName').value = "@" + user.username;
+                    } else if (user && user.first_name) {
+                        document.getElementById('telegramName').value = user.first_name;
+                    }
+                }
+            } catch (e) {
+                console.log("No TWA SDK platform active");
+            }
+
+            document.getElementById('bookingModal').style.display = 'flex';
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').style.display = 'none';
+        }
+
+        // จัดการเมื่อกดยืนยันการจองในแอป
+        function handleRequestSubmit(form) {
+            event.preventDefault();
+            document.getElementById('loadingOverlay').style.display = 'flex';
+
+            const requestData = {
+                customerName: form.customerName.value,
+                phone: form.phone.value,
+                companionName: form.companion.value,
+                packageType: form.package.value,
+                serviceDate: form.date.value,
+                teeTime: form.time.value,
+                golfCourse: form.course.value,
+                specialRequest: form.note.value
+            };
+
+            // หากยังไม่ได้ใส่ค่าลิงก์ในหน้า GitHub เพื่อรันทดสอบ จะเปิดโหมดจำลอง (Mock Success)
+            if (BACKEND_API_URL.startsWith("ใส่_") || BACKEND_API_URL === "") {
+                setTimeout(() => {
+                    document.getElementById('loadingOverlay').style.display = 'none';
+                    const dateStr = new Date().toISOString().slice(2, 10).replace(/-/g, "");
+                    const fallbackId = "REQ-" + dateStr + "-MOCK";
+                    closeBookingModal();
+                    showTicketResult(requestData, fallbackId);
+                }, 1500);
+                return;
+            }
+
+            // ส่งข้อมูลไปยัง Google Sheets API แบบ Plain Text
+            fetch(BACKEND_API_URL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "text/plain"
+                },
+                body: JSON.stringify(requestData)
+            })
+            .then(res => res.json())
+            .then(result => {
+                document.getElementById('loadingOverlay').style.display = 'none';
+                if (result.status === "success") {
+                    closeBookingModal();
+                    showTicketResult(requestData, result.requestId);
+                } else {
+                    alert("ระบบหลังบ้านขัดข้อง: " + result.message);
+                }
+            })
+            .catch(error => {
+                document.getElementById('loadingOverlay').style.display = 'none';
+                alert("เชื่อมต่อหลังบ้านกูเกิลสคริปต์ล้มเหลว: " + error.message);
+            });
+        }
+
+        function showTicketResult(data, requestId) {
+            document.getElementById('t-id').innerText = requestId;
+            document.getElementById('t-customer').innerText = data.customerName;
+            document.getElementById('t-companion').innerText = data.companionName;
+            document.getElementById('t-datetime').innerText = data.serviceDate + " @ " + data.teeTime;
+            document.getElementById('t-course').innerText = data.golfCourse;
+
+            document.getElementById('ticketModal').style.display = 'flex';
+        }
+
+        function closeAllModals() {
+            document.getElementById('ticketModal').style.display = 'none';
+            document.getElementById('profileModal').style.display = 'none';
+            document.getElementById('bookingModal').style.display = 'none';
+        }
+
+        // ลิงก์อำนวยความสะดวกที่แถบด้านล่าง
+        function openChannelLink() {
+            alert("กำลังนำท่านเปิดไปดูแค็ตตาล็อกส่วนตัวบนแชนแนลหลัก Telegram...");
+            window.open("https://t.me/your_telegram_channel", "_blank");
+        }
+
+        function openSupportChat() {
+            alert("กำลังเชื่อมต่อไปยังไลน์คอนเซียร์จแอดมิน @BKKParTeeConcierg_bot...");
+            window.open("https://t.me/your_bot_id", "_blank");
+        }
+
+        // เริ่มต้นเรนเดอร์ในหน้าแรกสุด
+        window.onload = function() {
+            renderCatalog(companionsData);
+            
+            // แจ้งเตือนบอทเทเลแกรมให้พร้อมรับคำสั่ง
+            try {
+                if (window.Telegram && window.Telegram.WebApp) {
+                    window.Telegram.WebApp.ready();
+                    window.Telegram.WebApp.expand(); // ขยายจอให้เต็มสูงสุดบนมือถือ
+                }
+            } catch (e) {
+                console.log("Normal Web Browser Mode active");
+            }
+        };
+    </script>
+</body>
+</html>
